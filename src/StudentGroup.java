@@ -10,7 +10,9 @@ public class StudentGroup {
         this.teacher = teacher;
         this.groupId = groupId;
     }
-
+    public void addStudent(Student student){
+        studentList.add(student);
+    }
     public int getGroupId() {
         return groupId;
     }
@@ -25,9 +27,7 @@ public class StudentGroup {
     public void setTeacher(Teacher teacher){
         this.teacher =teacher;
     }
-    public void addStudent(Student student){
-        studentList.add(student);
-    }
+
 
     @Override
     public String toString() {

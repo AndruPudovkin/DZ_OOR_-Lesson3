@@ -11,8 +11,19 @@ public class StudyGroup implements Iterable<StudentGroup> {
         studentGroups.add(studentGroup);
     }
 
+    public List<StudentGroup> getStudentGroups() {
+        return studentGroups;
+    }
+
     @Override
-    public Iterator<StudentGroup> iterator() {
-        return new StudyGroupIterator((List<StudentGroup>) this);
+    public StudyGroupIterator iterator() {
+        return new StudyGroupIterator (this);
+    }
+
+    @Override
+    public String toString() {
+        return "StudyGroup{" +
+                "studentGroups=" + studentGroups +
+                '}';
     }
 }

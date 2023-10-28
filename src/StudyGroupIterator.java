@@ -2,11 +2,11 @@ import java.util.Iterator;
 import java.util.List;
 
 public class StudyGroupIterator implements Iterator<StudentGroup> {
-    private List<StudentGroup> studentGroups;
+    private final List <StudentGroup> studentGroups;
     private int counter;
 
-    public StudyGroupIterator(List<StudentGroup> studentGroups) {
-        this.studentGroups = studentGroups;
+    public StudyGroupIterator(StudyGroup studyGroup) {
+        this.studentGroups = studyGroup.getStudentGroups();
         counter =0;
     }
 
@@ -15,10 +15,14 @@ public class StudyGroupIterator implements Iterator<StudentGroup> {
         return counter < studentGroups.size()-1;
     }
 
+
+
     @Override
     public StudentGroup next() {
-        if (!hasNext())
+        if(!hasNext()){
             return null;
-        return studentGroups.get(counter);
+        }
+        counter++;
+        return studentGroups.get(--counter);
     }
 }
